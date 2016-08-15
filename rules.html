@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="himalaya">
+<link rel="icon" href="../../favicon.ico">
+
+<title>Socail Plugin Dashboard</title>
+
+<!-- Bootstrap core CSS -->
+<link
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css"
+	rel="stylesheet" type="text/css" />
+<link rel="stylesheet"
+	href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+<!-- Custom styles for this template -->
+<link href="css/dashboard.css" rel="stylesheet">
+<link href="css/AdminLTE.css" rel="stylesheet" type="text/css" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="modernizr.custom.26633.js"></script>
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+	
+
+
+	
+		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+			<section class="content-header">
+				<h1 class="sub-header">&nbsp;&nbsp;Rules</h1>
+			</section>
+
+			<div role="tabpanel">
+
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs" role="tablist">
+					<li role="presentation" class="active"><a href="#list"
+						role="tab" data-toggle="tab">List</a></li>
+					 <li role="presentation"><a href="#create" role="tab"
+						data-toggle="tab">Create</a></li>  
+
+				</ul>
+
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane fade in active" id="list">
+						<div class="container">
+							<div class="row">
+								<div class="col-sm-9 col-md-9 clearfix">
+									<div class="panel panel-primary">
+										<div class="panel-heading">
+											<h3 class="panel-title">
+												<span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;Create
+												Rule
+											</h3>
+										</div>
+										<div class="panel-body">
+											<br />
+											<div class="row">
+												<div class="col-xs-4">
+													<div class="input-group input-append">
+														<span class="input-group-addon"> <strong>Name</strong></span>
+														<input type="text" class="form-control" id="ruleName">
+													</div>
+												</div>
+												<div class="col-xs-4">
+													<div class="input-group input-append">
+														<span class="input-group-addon"> <strong>Description</strong></span>
+														<input type="text" class="form-control" id="ruleDesc">
+													</div>
+												</div>
+												<div class="col-xs-4">
+													<div class="input-group input-append">
+														<span class="input-group-addon"> <strong>Status</strong></span>
+														<select class="form-control" id="status">
+															<option selected="selected" value='901'>Active</option>
+															<option value='902'>Inactive</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<br>
+											<div class="row">
+												<div class="col-xs-4">
+													<div class="input-group input-append">
+														<span class="input-group-addon"> <strong>Action
+																Value</strong></span> <input type="text" class="form-control"
+															id="actionValue">
+													</div>
+												</div>
+												<div class="col-xs-4">
+													<div class="input-group input-append">
+														<span class="input-group-addon"> <strong>Activity
+																Type</strong></span> <select class="form-control" id="activityType">
+															<option selected="selected" value='801'>Login</option>
+															<option value='803'>Activate</option>
+															<option value='804'>React</option>
+															<option value='805'>Review</option>
+															<option value='806'>Comment</option>
+															<option value='807'>Share</option>
+															<option value='808'>Register</option>
+														</select>
+													</div>
+												</div>
+												<div class="col-xs-4">
+													<div class="input-group input-append">
+														<span class="input-group-addon"> <strong>Apply
+																Period</strong></span> <select class="form-control" id="applyPeriod">
+															<option selected="selected" value='781'>Every
+																Action</option>
+															<option value='782'>Hourly</option>
+															<option value='783'>Daily</option>
+															<option value='784'>Sign Up</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<br> <br />
+											<div class="row">
+												<div class="col-md-12">
+													<button type="submit" class="btn btn-success btn-sm"
+														id="submitRule">Submit</button>
+													<button type="button" class="btn btn-default btn-sm">Reset</button>
+												</div>
+											</div>
+											<br>
+											<div class="blockoff-left">
+												<legend class="lead">
+													<small>Rules List</small>
+												</legend>
+											</div>
+											<div class="row" id="rules">
+												<div class="col-md-12">
+													<table class="table" id="ruletable">
+														<thead>
+															<tr>
+																<th>#</th>
+																<th>Name</th>
+																<th>Description</th>
+																<th>Activity Type</th>
+																<th>Action Value</th>
+																<th>Apply Period</th>
+																<th>Status</th>
+															</tr>
+														</thead>
+													</table>
+													<br /> <br />
+													<!-- <div class="alert alert-info">
+														<span class="glyphicon glyphicon-info-sign"></span>&nbsp;&nbsp;<strong>No
+															rule(s) was found</strong>
+													</div> -->
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div role="tabpanel" class="tab-pane fade" id="create"></div>
+					<div role="tabpanel" class="tab-pane fade" id="embed"></div>
+				</div>
+			</div>
+	
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script
+		src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"
+		type="text/javascript"></script>
+	<script
+		src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+	<script
+		src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+	
+	<script src="js/config.js"></script>
+	<script src="js/app.js" type="text/javascript"></script>
+	<script src="js/submitRule.js" type="text/javascript"></script>
+</body>
+</html>

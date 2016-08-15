@@ -1,0 +1,242 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="../../favicon.ico">
+
+<title>Socail Plugin Dashboard</title>
+
+<!-- Bootstrap core CSS -->
+<link
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css"
+	rel="stylesheet" type="text/css" />
+<link rel="stylesheet"
+	href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+<!-- Custom styles for this template -->
+<link href="css/dashboard.css" rel="stylesheet">
+<link href="css/AdminLTE.css" rel="stylesheet" type="text/css" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/modernizr.custom.26633.js"></script>
+
+</head>
+
+<body>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Social Plugin</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#"></a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+
+	<div class="row">
+		<div class="col-sm-3 col-md-2 sidebar">
+			<ul class="sidebar-menu">
+				<li><a href="index.html" style="cursor: pointer"> <i
+						class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+				<li class="treeview"><a href="#"> <i class="fa fa-th"></i>
+						<span>Plugins</span> <i class="fa fa-angle-left pull-right"></i>
+				</a>
+					<ul class="treeview-menu">
+
+						<li><a href="reactions.html"><i
+								class="fa fa-angle-double-right"></i> Reactions</a></li>
+
+					</ul></li>
+				<li class="treeview"><a href="#"> <i
+						class="fa fa-bar-chart-o"></i> <span>Reports</span> <i
+						class="fa fa-angle-left pull-right"></i>
+				</a>
+					<ul class="treeview-menu">
+						<li><a href="ageAndgender_reports.html" id="ageGenderGraph"><i
+								class="fa fa-angle-double-right"></i> Age & Gender</a></li>
+
+						<li><a href="dailyactivity_reports.html"
+							id="dailyActivityGraph"><i class="fa fa-angle-double-right"></i>
+								Daily Activities</a></li>
+					</ul></li>
+				<li class="treeview"><a href="#"> <i
+						class="fa fa-pie-chart"></i> <span>Insights</span> <i
+						class="fa fa-angle-left pull-right"></i>
+				</a>
+					<ul class="treeview-menu">
+
+						<li><a href="reactions_insights.html"><i
+								class="fa fa-angle-double-right"></i> Reactions</a></li>
+						<li><a href="rating_insights.html"><i
+								class="fa fa-angle-double-right"></i> Rating</a></li>
+
+					</ul></li>
+				<li class="active"><a href="servicesSettings.html"> <i
+						class="fa fa-cogs"></i> <span>Settings</span></a></li>
+				<li class="treeview"><a href="#"> <i
+						class="fa fa-gamepad lg"></i> <span>Gamification</span> <i
+						class="fa fa-angle-left pull-right"></i>
+				</a>
+					<ul class="treeview-menu">
+						<li><a href="rules.html"><i
+								class="fa fa-angle-double-right"></i> Rules</a></li>
+						<li><a href="badges.html"><i
+								class="fa fa-angle-double-right"></i> Badges</a></li>
+					</ul></li>
+
+				<li class="treeview"><a href="#"> <i class="fa fa-gear"></i>
+						<span>Widgets</span> <i class="fa fa-angle-left pull-right"></i>
+				</a>
+
+					<ul class="treeview-menu">
+						<li><a href="main.html#deisgn"><i
+								class="fa fa-angle-double-right"></i> Designer</a></li>
+						<li><a href="main.html#admin"><i
+								class="fa fa-angle-double-right"></i> Admin(Portal)</a></li>
+					</ul></li>
+			</ul>
+		</div>
+		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+			<section class="content-header">
+				<h1 class="sub-header">&nbsp;&nbsp;Dashboard</h1>
+			</section>
+			<div class="row">
+				<div class="col-md-3 col-xs-4">
+					<!-- small box -->
+					<div class="small-box bg-aqua">
+						<div class="inner">
+							<h3>
+								<label id="socialLogins"></label>
+							</h3>
+							<p>Social Registrations</p>
+						</div>
+						<div class="icon">
+							<i class="ion ion-ios7-people"></i>
+						</div>
+						<a href="#" class="small-box-footer">&nbsp;</a>
+					</div>
+				</div>
+				<div class="col-md-3 col-xs-6">
+					<!-- small box -->
+					<div class="small-box bg-yellow">
+						<div class="inner">
+							<h3>
+								<label id="registeredLogins"></label>
+							</h3>
+							<p>User Registrations</p>
+						</div>
+						<div class="icon">
+							<i class="ion ion-person-add"></i>
+						</div>
+						<a href="#" class="small-box-footer">&nbsp;</a>
+					</div>
+				</div>
+				<div class="col-md-3 col-xs-6">
+					<!-- small box -->
+					<div class="small-box bg-green">
+						<div class="inner">
+							<h3>
+								<label id="dailyLogins"></label>
+							</h3>
+							<p>Daily Logins</p>
+						</div>
+						<div class="icon">
+							<i class="ion ion-log-in"></i>
+						</div>
+						<a href="#" class="small-box-footer">&nbsp;</a>
+					</div>
+				</div>
+			</div>
+			<!-- /.row -->
+			<div class="row">
+				<div class="col-md-6">
+					<section class="content-header">
+						<h4 class="sub-header">&nbsp;&nbsp;Social Logins</h4>
+					</section>
+					<div id="BarChart" style="height: 250px;"></div>
+				</div>
+				<div class="col-md-6">
+					<section class="content-header">
+						<h4 class="sub-header">&nbsp;&nbsp;Social Grid</h4>
+					</section>
+
+
+					<!-- modified here for dipalyaing all prof pics -->
+					<div id="ri-grid" class="ri-grid ri-grid-size-1 ri-shadow">
+						<img class="ri-loading-image" src="images/loading.gif" />
+						<ul id="gridImages">
+
+						</ul>
+					</div>
+
+
+				</div>
+			</div>
+			<div class="row">
+
+				<!-- modified for age and gender graph -->
+				<div class="col-md-10">
+					<section class="content-header">
+						<h4 class="sub-header">&nbsp;&nbsp;Gender and Age</h4>
+					</section>
+					<!-- <div id="myfirstchart" style="height: 250px;"></div> -->
+					<div id="genderPieChart" style="height: 270px; width:"
+						class="col-sm-3 col-md-5 "></div>
+					<div id="AgePieChart" style="height: 270px; width:"
+						class="col-sm-3 col-md-5 "></div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Bootstrap core JavaScript
+    ================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script
+			src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script
+			src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"
+			type="text/javascript"></script>
+		<script
+			src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+		<script
+			src="http://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+
+		<script src="js/config.js"></script>
+
+		<script src="js/index.js"></script>
+		<script src="js/app.js" type="text/javascript"></script>
+		<script type="text/javascript" src="js/jquery.gridrotator.js"></script>
+		<!--  modified for three tabs:social registrations, user registrations, daily logins ,age and gender graph-->
+	<script>
+	$(document).ready(function() {
+		loginCount();//for three tabs
+		drawChart();//for gender graph
+  		drawAgeChart();//for age graph
+  		allProfPic();//for displaying prof pics
+  		weeklyLoginChart();		 	
+	});
+	
+	</script>
+</body>
+</html>

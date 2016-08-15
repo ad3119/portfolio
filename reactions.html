@@ -1,0 +1,352 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="himalaya">
+<link rel="icon" href="../../favicon.ico">
+
+<title>Socail Plugin Dashboard</title>
+
+<!-- Bootstrap core CSS -->
+<link
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css"
+	rel="stylesheet" type="text/css" />
+<link rel="stylesheet"
+	href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+<!-- Custom styles for this template -->
+<link href="css/dashboard.css" rel="stylesheet">
+<link href="css/AdminLTE.css" rel="stylesheet" type="text/css" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+    
+    <!-- Added for reactions -->
+<style type="text/css">
+        #dvSource img, #dvDest img
+        {
+            height: 35px;
+            width: 35px;
+            margin: 3px;
+            z-index:1000;
+        }
+        .draggable
+        {
+            filter: alpha(opacity=60);
+            opacity: 0.6;
+        }
+        .dropped
+        {
+            position: static !important;
+        }
+        #dvSource
+        {
+            border: 5px solid #ccc;
+            padding: 5px;
+            height: 60px;
+        }
+    </style> 
+    
+</head>
+
+<body>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Social Plugin</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right ">
+					<li><a href="#"></a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+
+	<div class="row">
+		<div class="col-sm-3 col-md-2 sidebar">
+			<ul class="sidebar-menu">
+				<li><a href="index.html" class="handcursor"> <i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
+				</li>
+				<li class="treeview active"><a href="#"> <i class="fa fa-th"></i>
+						<span>Plugins</span> <i class="fa fa-angle-left pull-right"></i>
+				</a>
+					<ul class="treeview-menu">
+					
+						<li><a href="#"><i
+								class="fa fa-angle-double-right"></i> Reactions</a></li>
+						
+					</ul></li>
+				<li class="treeview"><a href="#"> <i
+						class="fa fa-bar-chart-o"></i> <span>Reports</span> <i
+						class="fa fa-angle-left pull-right"></i>
+				</a>
+					<ul class="treeview-menu">
+						<li><a href="ageAndgender_reports.html" id="ageGenderGraph"><i
+								class="fa fa-angle-double-right"></i> Age & Gender</a>
+						</li>
+						
+						<li><a href="dailyactivity_reports.html"
+							id="dailyActivityGraph"><i class="fa fa-angle-double-right"></i>
+								Daily Activities</a>
+						</li>
+					</ul>
+				</li>
+				<li class="treeview"><a href="#"> <i
+						class="fa fa-pie-chart"></i> <span>Insights</span> <i
+						class="fa fa-angle-left pull-right"></i> </a>
+					<ul class="treeview-menu">
+
+						<li><a href="reactions_insights.html"><i
+								class="fa fa-angle-double-right"></i> Reactions</a>
+						</li>
+						<li><a href="rating_insights.html"><i
+								class="fa fa-angle-double-right"></i> Rating</a>
+						</li>
+					</ul>
+				</li>
+				<li class="active"><a href="servicesSettings.html"> <i class="fa fa-cogs"></i>
+						<span>Settings</span></a></li>
+				<li class="treeview"><a href="#"> <i
+						class="fa fa-pie-chart"></i> <span>Gamification</span> <i
+						class="fa fa-angle-left pull-right"></i>
+				</a>
+					<ul class="treeview-menu">
+						<li><a href="rules.html"><i
+								class="fa fa-angle-double-right"></i> Rules</a></li>
+						<li><a href="badges.html"><i
+								class="fa fa-angle-double-right"></i> Badges</a></li>
+					</ul></li>
+				<li class="treeview"> <a href="#"> <i
+						class="fa fa-gear"></i> <span>Widgets</span> <i
+						class="fa fa-angle-left pull-right"></i> </a>
+					<ul class="treeview-menu">
+						<li><a href="main.html#deisgn"><i
+								class="fa fa-angle-double-right"></i> Designer</a></li>
+						<li><a href="main.html#admin"><i
+								class="fa fa-angle-double-right"></i> Admin(Portal)</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+			<section class="content-header">
+				<h1 class="sub-header"><span class="glyphicon glyphicon-heart"></span>&nbsp;&nbsp;Reactions</h1>
+			</section>
+			<div role="tabpanel">
+
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs" role="tablist">
+					<li role="presentation" class="active"><a href="#list"
+						role="tab" data-toggle="tab">List</a></li>
+					<!-- <li role="presentation"><a href="#create" role="tab"
+						data-toggle="tab">Create</a></li> -->
+					<li role="presentation"><a href="#embed" role="tab"
+						data-toggle="tab">Embed</a></li>
+				</ul>
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane fade in active" id="list">
+						<div class="container">
+							<div class="row">
+								<div class="col-sm-9 col-md-9 clearfix">
+									<br/>
+									<div class="panel panel-primary">
+										<div class="panel-body">
+											<div class="row">
+											<div class="col-xs-8">
+
+													<section class="content-header">
+														<h2 class="sub-header">
+															<small>&nbsp;&nbsp;You can pick from here or create your own</small>
+														</h2>
+													</section>
+													<div id="dvSource">
+														
+													</div>
+													<br/>
+												</div>
+											</div>
+											<div class="row" id="dvDest">
+												<div class="col-xs-4">
+													<div class="input-group input-append">
+														<span class="input-group-addon"> <strong>Name</strong></span>
+														<input type="text" class="form-control" id="reactionName">
+													</div>
+												</div>
+												<div class="col-xs-4">
+													<div class="input-group input-append">
+														<span class="input-group-addon"> <strong>URL</strong></span>
+														<input type="text" class="form-control" id="reactionURL">
+													</div>
+												</div>
+
+											</div>
+
+											<br> <br />
+											<div class="row">
+												<div class="col-md-12">
+													<button type="submit" class="btn btn-success btn-sm"
+														id="submitReaction">Submit</button>
+													<button type="button" class="btn btn-default btn-sm">Reset</button>
+												</div>
+											</div>
+											<br>
+											<div class="blockoff-left">
+												<legend class="lead">
+													<small>Rules List</small>
+												</legend>
+											</div>
+											<div class="row" id="rules">
+												<div class="col-md-12">
+													<table class="table table-hover" id="reactionlist">
+														<thead>
+															<tr>
+																<th>#</th>
+																<th>Reaction Name</th>
+																<th>Reaction Icon</th>
+																<th>&nbsp;</th>
+																<th>&nbsp;</th>
+															</tr>
+														</thead>
+													</table>
+													<br /> <br />
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div role="tabpanel" class="tab-pane fade" id="create"></div>
+					<div role="tabpanel" class="tab-pane fade" id="embed">
+						<div class="container">
+							<div class="row">
+								<div class="col-sm-9 col-md-9 clearfix">
+									<div class="panel panel-primary">
+										<div class="panel-body">
+											<br />
+											<div class="row">
+												<div class="col-md-12">
+													<button type="submit" class="btn btn-success btn-sm"
+														id="generateCode">Generate Code</button>
+												</div>
+											</div>
+											<br />
+											<br />
+											<div class="blockoff-left hidden" id="codeText">
+												<legend class="lead">
+													<small>Add the following line of code</small>
+												</legend>
+											</div>
+											<div class="row"">
+												<div class="col-md-12" id="code"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.8.24/jquery-ui.min.js" type="text/javascript"></script>
+	
+	<script
+		src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"
+		type="text/javascript"></script>
+	<script
+		src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+	<script
+		src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+		<script src="js/config.js"></script>
+	<script src="js/app.js" type="text/javascript"></script>
+	<script src="js/reactions.js" type="text/javascript"></script>
+
+	<script type="text/javascript">
+	$(function(){
+		var images = [{
+      	  				  src: adminConfig.homeURL + "/images/reaction/very_happy.png",
+    	 				  title: "Excited"
+      				  },
+		              {
+		            	  src: adminConfig.homeURL + "/images/reaction/neutral.png",
+		            	  title: "Neutral"
+		              },
+		              {
+		            	  src: adminConfig.homeURL + "/images/reaction/happy.png",
+		            	  title: "Happy"
+		              },
+		              {
+		            	  src: adminConfig.homeURL + "/images/reaction/yuck.png",
+		            	  title: "Yuck"
+		              },
+		              {
+		            	  src: adminConfig.homeURL + "/images/reaction/sad.png",
+		            	  title: "Sad"
+		              }
+				];
+		
+		
+		$.each(images, function(index, image){
+			var badge = '<img title = "'+image.title+'" style="width: 30px; height: 30px" src = "'+image.src+'">';
+			$('#dvSource').append(badge);				
+		});
+
+	
+	
+         $("#dvSource img").draggable({
+             revert: "invalid",
+             refreshPositions: true,
+             drag: function (event, ui) {
+                 ui.helper.addClass("draggable");
+             },
+             stop: function (event, ui) {
+                 ui.helper.removeClass("draggable");
+                 var image = this.src.split("/")[this.src.split("/").length - 1];
+                 if ($.ui.ddmanager.drop(ui.helper.data("draggable"), event)) {
+                     
+                     $("#reactionName").val(this.title);
+                     $("#reactionURL").val(this.src);
+                 }
+                 else {
+                     
+                 }
+             }
+         });
+         $("#dvDest").droppable({
+             drop: function (event, ui) {
+                 if ($("#dvDest img").length == 0) {
+                    ;
+                 }
+                 ui.draggable.addClass("dropped");
+             }
+         });
+     });
+    </script>
+</body>
+</html>

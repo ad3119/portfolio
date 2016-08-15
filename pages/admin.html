@@ -1,0 +1,32 @@
+<legend>Portal Page</legend>
+<div ng-repeat="widget in widgets">
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+		    <h3 class="panel-title">{{widget.widgetHeader}}</h3>
+		</div>
+		<div class="panel-body">
+			<div class="row">
+		    	<div class="col-md-3">Content for : {{widget.widgetHeader}}</div>
+		    	<div class="col-md-3">
+		    	<p class="text-success">Placement of Widget on page:</p>
+		    	<select class="form-control" ng-model="widget.selectedAlignment">
+		    		<option ng-repeat= "page in align">{{page}}</option>
+		    	</select>
+		    	<p class="text-primary">Selected Alignment : {{widget.selectedAlignment}} </p>
+		    	</div>
+		    	<div class="col-md-3">
+		    		<div>Add to Pages:Press <kbd>Ctrl</kbd> to select more</div>
+			    	<select  class="form-control" multiple ng-model="widget.selectedPages">
+			    		<option ng-repeat= "page in pages">{{page}}</option>
+			    	</select>
+			    	<p class="text-primary">Selected Pages: {{widget.selectedPages}}</p>
+			    	<div ng-show="widget.showError" class="danger">Select atleast 1 page</div>
+			    </div>
+			    <div class="col-md-3">
+			     	<button type="button" class="btn btn-danger pull-right" ng-click="deleteWidget(widget)" ng-disabled="widget.deleteDisable">Delete</button>
+			     	<button type="button" class="btn btn-success pull-right" ng-click="addWidget(widget)" ng-disabled="widget.addDisable">Add</button>
+			    </div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,11 @@
+<div ng-repeat='widget in widgets'>
+	<div class="panel panel-info col-md-6" id="{{widget.id}}">
+		<div class="panel-heading ui-sortable-handle">
+			<span class="glyphicon glyphicon-menu-down colorGrey"></span><panel-label>{{widget.header}}</panel-label>
+			<span class="glyphicon glyphicon-resize-full pull-right colorGrey" onclick="widgets.makeOverlay(event)"></span>
+			<span class="glyphicon glyphicon-refresh pull-right" onclick="widgets.getWeatherInfo(event)"></span>
+			<span class="glyphicon glyphicon-trash pull-right colorGrey" onclick="widgets.deleteWidget(event)"></span>
+		</div>
+		<div class="panel-body "></div>
+	</div>
+</div>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Delete Reaction</title>
+<link
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css"
+	rel="stylesheet" type="text/css" />
+<link rel="stylesheet"
+	href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+<!-- Custom styles for this template -->
+<link href="css/dashboard.css" rel="stylesheet">
+<link href="css/AdminLTE.css" rel="stylesheet" type="text/css" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+	<form action="javascript:;" id="registerForm">
+		<div class="container" style='text-align: center;'>
+			<div class="row">
+				<div class="col-lg-1 col-offset-6 centered">
+					<span
+						style='width: 300px; height: 300px; overflow: hidden; font-size: 1.5em;'>Are
+						you sure you want to delete this badge?</span>
+				</div>
+			</div>
+			<br />
+			<br />
+
+			<div class="row">
+				<div class="col-md-12">
+					<button type="submit" class="btn btn-success btn-sm form-group"
+						id="deleteButton">Yes</button>
+					<button type="button" class="btn btn-default btn-sm form-group">No</button>
+				</div>
+			</div>
+		</div>
+	</form>
+	<script src="js/config.js"></script>
+	<script>
+	
+		var baseURL = adminConfig.reactionsBaseURL;
+		var deleteReactionURL = baseURL+"/deleteReaction";
+		
+		var id;
+		window.onload = reactionDetails();
+		
+		function reactionDetails() {
+			if (window.location.href.indexOf("reactionId") > -1) {
+				id = getParameterByName('reactionId');
+				console.log(id);
+
+			}
+		}
+		
+		function getParameterByName(name) {
+			name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+			var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"), results = regex
+					.exec(location.search);
+			return results === null ? "" : decodeURIComponent(results[1]
+					.replace(/\+/g, " "));
+		}
+		
+		$('#deleteButton').click(function() {
+			deleteData();
+			return false;
+		});
+
+		function deleteData() {
+
+			$.ajax({
+				type : 'POST',
+				contentType : 'text/plain',
+				url : deleteReactionURL,
+				data : id,
+				success : function(data) {
+					console.log(data);
+					if (data.code == "115")
+					{
+						console.log("Reaction deleted");
+						window.opener.location.reload();
+						window.close();
+					}
+					if (data.code == "116")
+					{
+						$("#error-window").removeClass('hidden');
+						$("#error-msg-login").text("Reaction Delete Failed!!");
+					}
+
+				},
+				error : function(jqXHR, textStatus, errorThrown) {
+					alert('LoginUser error: ' + textStatus);
+				}
+			});
+
+		}
+	</script>
+</body>
+</html>

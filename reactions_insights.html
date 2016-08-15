@@ -1,0 +1,270 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="himalaya">
+<link rel="icon" href="../../favicon.ico">
+
+<title>Socail Plugin Dashboard</title>
+
+<!-- Bootstrap core CSS -->
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+<!-- Custom styles for this template -->
+<link href="css/dashboard.css" rel="stylesheet">
+<link href="css/AdminLTE.css" rel="stylesheet" type="text/css" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="modernizr.custom.26633.js"></script>
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Social Plugin</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#"></a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+
+	<div class="row">
+		<div class="col-sm-3 col-md-2 sidebar">
+			<ul class="sidebar-menu">
+				<li><a href="index.html" class="handcursor"> <i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
+				</li>
+				<li class="treeview"><a href="#"> <i class="fa fa-th"></i>
+						<span>Plugins</span> <i class="fa fa-angle-left pull-right"></i>
+				</a>
+					<ul class="treeview-menu">
+					
+						<li><a href="reactions.html"><i
+								class="fa fa-angle-double-right"></i> Reactions</a></li>
+						
+					</ul></li>
+				<li class="treeview "><a href="#"> <i
+						class="fa fa-bar-chart-o"></i> <span>Reports</span> <i
+						class="fa fa-angle-left pull-right"></i>
+				</a>
+					<ul class="treeview-menu">
+						<li><a href="ageAndgender_reports.html" id="ageGenderGraph"><i
+								class="fa fa-angle-double-right"></i> Age & Gender</a>
+						</li>
+						
+						<li><a href="dailyactivity_reports.html"
+							id="dailyActivityGraph"><i class="fa fa-angle-double-right"></i>
+								Daily Activities</a>
+						</li>
+					</ul>
+				</li>
+				<li class="treeview active"><a href="#"> <i
+						class="fa fa-pie-chart"></i> <span>Insights</span> <i
+						class="fa fa-angle-left pull-right"></i> </a>
+					<ul class="treeview-menu">
+
+						<li><a href="#"><i
+								class="fa fa-angle-double-right"></i> Reactions</a>
+						</li>
+						<li><a href="rating_insights.html"><i
+								class="fa fa-angle-double-right"></i> Rating</a>
+						</li>
+					
+					</ul>
+				</li>
+				<li class="active"><a href="servicesSettings.html"> <i class="fa fa-cogs"></i>
+						<span>Settings</span></a></li>
+				<li class="treeview"><a href="#"> <i
+						class="fa fa-pie-chart"></i> <span>Gamification</span> <i
+						class="fa fa-angle-left pull-right"></i>
+				</a>
+					<ul class="treeview-menu">
+						<li><a href="rules.html"><i
+								class="fa fa-angle-double-right"></i> Rules</a></li>
+						<li><a href="badges.html"><i
+								class="fa fa-angle-double-right"></i> Badges</a></li>
+					</ul>
+				</li>
+				<li class="treeview "> <a href="#"> <i
+						class="fa fa-gear"></i> <span>Widgets</span> <i
+						class="fa fa-angle-left pull-right"></i> </a>
+					<ul class="treeview-menu">
+						<li><a href="main.html#deisgn"><i
+								class="fa fa-angle-double-right"></i> Designer</a></li>
+						<li><a href="main.html#admin"><i
+								class="fa fa-angle-double-right"></i> Admin(Portal)</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+			<section class="content-header">
+				<h1 class="sub-header" id="chartname">Reactions Graph</h1>
+				<div id="chooseProduct">
+				<div class="btn-group">
+   					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"> Choose Product <span class="caret"></span>
+   					</button>
+  					<ul class="dropdown-menu">
+      					<li><a href="#" onclick="drawReactionsChart('Nikon Coolpix AW120', '151');">Nikon Coolpix AW120</a></li>
+      					<li><a href="#" onclick="drawReactionsChart('Nikon Coolpix S9700', '178');">Nikon Coolpix S9700</a></li>
+      					<li><a href="#" onclick="drawReactionsChart('Nikon Coolpix S9600', '103');">Nikon Coolpix S9600</a></li>      					
+      				</ul>
+				</div>
+				<h1 id="productName"></h1>
+			</div>
+			</section>
+
+			<div id="ReactionsChart" style="height: 250px;width :550px"
+				class="col-sm-3 col-md-5 "></div>
+
+
+		</div>
+	</div>
+
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+				</script>
+				<script
+					src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"
+					type="text/javascript"></script>
+				<script
+					src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+				<script
+					src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+
+				<!-- removed from here -->
+
+				<script src="js/app.js" type="text/javascript"></script>
+				<script type="text/javascript" src="js/jquery.gridrotator.js"></script>
+				<script src="js/config.js"></script>
+
+				<!-- added for insights graph -->
+				<script>
+				function drawReactionsChart(productName, product) {
+					$.ajax({
+						type: "GET",
+						url: adminConfig.reactionsBaseURL + "/8001/"+product,
+						async: false,
+						success: function(data) {
+							if(data.code == "500" && data.object != null) {
+							$("#productName").empty();
+							$("#ReactionsChart").empty();
+							$("#productName").append(productName);
+							
+							var reactionData = (data.object != undefined) ? data.object : {};
+
+							console.log(reactionData);
+							console.log(reactionData.length);
+
+							
+							var react0Count = 0;
+							var react1Count = 0;
+							var react2Count = 0;
+							var react3Count = 0;
+							var react4Count = 0;
+
+							for ( var i = 0; i < reactionData.length; i++) {
+								if ((reactionData[i] != null)
+										&& (reactionData[i].reactName == "Excited")) {
+									
+									react0Count = reactionData[i].reactCount;
+								} else if ((reactionData[i] != null)
+										&& reactionData[i].reactName == "Sad") {
+									
+									react1Count = reactionData[i].reactCount;
+								} else if ((reactionData[i] != null)
+										&& reactionData[i].reactName == "Happy") {
+									
+									react2Count = reactionData[i].reactCount;
+								} else if ((reactionData[i] != null)
+										&& reactionData[i].reactName == "Yuck") {
+									
+									react3Count = reactionData[i].reactCount;
+								} else if ((reactionData[i] != null)
+										&& reactionData[i].reactName == "Neutral") {
+									
+									react4Count = reactionData[i].reactCount;
+								}
+								
+							}
+							Morris.Bar({
+								element : 'ReactionsChart',
+								data : [ {
+									label : 'Excited',
+									value : react0Count
+
+								}, {
+									label : 'Sad',
+									value : react1Count
+								}, {
+
+									label : 'Happy',
+									value : react2Count
+								}, {
+
+									label : 'Yuck',
+									value : react3Count
+								}, {
+
+									label : 'Neutral',
+									value : react4Count
+
+								} ],
+
+								xkey : 'label',
+								// A list of names of data record attributes that contain y-values.
+								ykeys : [ 'value' ],
+								// Labels for the ykeys -- will be displayed when you hover over the
+								// chart.
+								labels : [ 'Count' ],
+								barColors : function(row, series, type) {
+									if (type === 'bar') {
+										var red = Math.ceil(255 * row.y
+												/ this.ymax);
+										return 'rgb(' + red + ',0,0)';
+									} else {
+										return '#000';
+									}
+								}
+							});
+						}
+						
+					else {
+						alert("Error While fetching graph");
+					}
+						}
+				});
+					}
+				</script>
+</body>
+</html>

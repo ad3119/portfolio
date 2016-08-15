@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Edit Reaction</title>
+<link
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css" />
+<link
+	href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css"
+	rel="stylesheet" type="text/css" />
+<link rel="stylesheet"
+	href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+<!-- Custom styles for this template -->
+<link href="css/dashboard.css" rel="stylesheet">
+<link href="css/AdminLTE.css" rel="stylesheet" type="text/css" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="modernizr.custom.26633.js"></script>
+<!-- <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>-->
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+</head>
+<body>
+	<form action="javascript:;" id="registerForm">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-9 clearfix">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title">
+								<span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;Edit
+								Reaction
+							</h3>
+						</div>
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-xs-4">
+									<div class="input-group input-append">
+										<span class="input-group-addon"> <strong>Name</strong></span>
+										<input type="text" class="form-control" id="reactName">
+									</div>
+								</div>
+								<div class="col-xs-8">
+									<div class="input-group input-append">
+										<span class="input-group-addon"> <strong>Active URL</strong></span>
+										<input type="text" class="form-control" id="activeUrl">
+									</div>
+								</div>
+							</div>
+							
+							<br> <br />
+							<div class="row">
+								<div class="col-sm-12">
+									<button type="submit" class="btn btn-success btn-sm" id="editReactionButton">Submit</button>
+									<button type="button" class="btn btn-default btn-sm">Reset</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+	<script src="js/config.js"></script>
+	<script>
+		var id;
+		var name;
+		var activeUrl;
+		var baseURL = adminConfig.reactionsBaseURL;
+		var editReactionURL = baseURL+"/editReaction";
+		
+		window.onload = reactionDetails();
+
+		function reactionDetails() {
+		
+			if (window.location.href.indexOf("reactionId") > -1) {
+				id = getParameterByName('reactionId');
+				console.log(id);
+
+			}
+			if (window.location.href.indexOf("reactionName") > -1) {
+				name = getParameterByName('reactionName');
+				console.log(name);
+
+			}
+			if (window.location.href.indexOf("reactionUrl") > -1) {
+				activeUrl = getParameterByName('reactionUrl');
+				console.log(activeUrl);
+
+			}
+			assignValue();
+		}
+
+		function assignValue() {
+			$('#reactName').val(name);
+			$('#activeUrl').val(activeUrl);
+			
+		}
+
+		function getParameterByName(name) {
+			name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+			var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"), results = regex
+					.exec(location.search);
+			return results === null ? "" : decodeURIComponent(results[1]
+					.replace(/\+/g, " "));
+		}
+		
+		$('#editReactionButton').click(function() {
+			editData();
+			return false;
+		});
+				
+		function editData(){			
+			$.ajax({
+				type: 'POST',
+				contentType: 'application/json',
+				url: editReactionURL,
+				dataType: "json",
+				data: JSON.stringify({"reactId":id,"reactName": $('#reactName').val(),"reactUrl": $('#activeUrl').val()}),
+				success: function(data){
+					console.log(data);
+					if(data.code == "112") 
+					{
+						
+						console.log("Reaction updated"); 
+						window.opener.location.reload();
+						window.close();
+					}
+					if(data.code == "113") 
+					{
+						$("#error-window").removeClass( 'hidden' );
+						$("#error-msg-login").text("Reaction Update Failed!!");
+					}
+					
+				},
+				error: function(jqXHR, textStatus, errorThrown){
+					alert('LoginUser error: ' + textStatus);
+				}
+			});
+		}
+	</script>
+</body>
+
+</html>

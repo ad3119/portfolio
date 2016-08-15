@@ -1,0 +1,122 @@
+<div class="col-sm-9 col-md-10 main">
+			<section class="content-header">
+				<h1 class="sub-header">&nbsp;&nbsp;Rules</h1>
+			</section>
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane fade in active" id="list">
+						<div class="container">
+							<div class="row">
+								<div class="col-sm-9 col-md-9 clearfix">
+									<div class="panel panel-primary">
+										<div class="panel-heading">
+											<h3 class="panel-title">
+												<span class="glyphicon glyphicon-ok"></span>&nbsp;&nbsp;Create
+												Rule
+											</h3>
+										</div>
+										<div class="panel-body">
+											<br />
+											<div class="row">
+												<div class="col-xs-4">
+													<div class="input-group input-append">
+														<span class="input-group-addon"> <strong>Name</strong></span>
+														<input type="text" class="form-control" id="ruleName">
+													</div>
+												</div>
+												<div class="col-xs-4">
+													<div class="input-group input-append">
+														<span class="input-group-addon"> <strong>Description</strong></span>
+														<input type="text" class="form-control" id="ruleDesc">
+													</div>
+												</div>
+												<div class="col-xs-4">
+													<div class="input-group input-append">
+														<span class="input-group-addon"> <strong>Status</strong></span>
+														<select class="form-control" id="status">
+															<option selected="selected" value='901'>Active</option>
+															<option value='902'>Inactive</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<br>
+											<div class="row">
+												<div class="col-xs-4">
+													<div class="input-group input-append">
+														<span class="input-group-addon"> <strong>Action
+																Value</strong></span> <input type="text" class="form-control"
+															id="actionValue">
+													</div>
+												</div>
+												<div class="col-xs-4">
+													<div class="input-group input-append">
+														<span class="input-group-addon"> <strong>Activity
+																Type</strong></span> <select class="form-control" id="activityType">
+															<option selected="selected" value='801'>Login</option>
+															<option value='803'>Activate</option>
+															<option value='804'>React</option>
+															<option value='805'>Review</option>
+															<option value='806'>Comment</option>
+															<option value='807'>Share</option>
+															<option value='808'>Register</option>
+														</select>
+													</div>
+												</div>
+												<div class="col-xs-4">
+													<div class="input-group input-append">
+														<span class="input-group-addon"> <strong>Apply
+																Period</strong></span> <select class="form-control" id="applyPeriod">
+															<option selected="selected" value='781'>Every
+																Action</option>
+															<option value='782'>Hourly</option>
+															<option value='783'>Daily</option>
+															<option value='784'>Sign Up</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<br> <br />
+											<div class="row">
+												<div class="col-md-12">
+													<button type="submit" class="btn btn-success btn-sm"
+														id="submitRule">Submit</button>
+													<button type="button" class="btn btn-default btn-sm">Reset</button>
+												</div>
+											</div>
+											<br>
+											<div class="blockoff-left">
+												<legend class="lead">
+													<small>Rules List</small>
+												</legend>
+											</div>
+											<div class="row" id="rules">
+												<div class="col-md-12">
+													<table class="table" id="ruletable">
+														<thead>
+															<tr>
+																<th>#</th>
+																<th>Name</th>
+																<th>Description</th>
+																<th>Activity Type</th>
+																<th>Action Value</th>
+																<th>Apply Period</th>
+																<th>Status</th>
+															</tr>
+														</thead>
+													</table>
+													<br /> <br />
+													<!-- <div class="alert alert-info">
+														<span class="glyphicon glyphicon-info-sign"></span>&nbsp;&nbsp;<strong>No
+															rule(s) was found</strong>
+													</div> -->
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+			</div>
+			<br>
+		</div>
+	</div>

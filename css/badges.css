@@ -1,0 +1,21 @@
+#dvSource img,#dvDest img {
+	height: 35px;
+	width: 35px;
+	margin: 3px;
+	z-index: 1000;
+}
+
+.draggable {
+	filter: alpha(opacity = 60);
+	opacity: 0.6;
+}
+
+.dropped {
+	position: static !important;
+}
+
+#dvSource {
+	border: 5px solid #ccc;
+	padding: 5px;
+	height: 80px;
+}
